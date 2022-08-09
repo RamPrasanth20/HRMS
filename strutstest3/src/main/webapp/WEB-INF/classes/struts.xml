@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts  
+Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">  
+<struts>  
+<package name="default" extends="struts-default">  
+  
+<action name="login" class="com.StrutsTest1.Login">  
+<result name="success">/home.jsp</result>
+<result name="error">/index.jsp</result>  
+</action>  
+
+<action name="logout" class="com.StrutsTest1.Login" method="Logout">  
+<result name="success">/index.jsp</result>
+</action> 
+  
+<action name="signup" class="com.StrutsTest1.Signup">  
+<result name="success">/index.jsp</result>
+<result name="error">/Signup.jsp</result>  
+</action> 
+
+<action name="signup_page" class="com.StrutsTest1.Login" method="signUpPage">
+	<result name="success">/Signup.jsp</result>
+</action>
+ 
+<action name="employee_portal" class="com.StrutsTest1.EmployeePortal">  
+<result name="success">/employee_login.jsp</result>  
+</action> 
+
+
+<action name="employee_login" class="com.StrutsTest1.EmployeeLogin">  
+<result name="success">/employee_home.jsp</result>  
+<result name="error">/index.jsp</result> 
+</action> 
+ 
+<action name="addNewEmp" class="com.StrutsTest1.AddNewEmp">
+<result name="success">/add_employee.jsp</result>  
+</action>
+
+
+<action name="createEmp" class="com.StrutsTest1.CreateEmp">  
+<result name="success">/home.jsp</result>
+<result name="error">/add_employee.jsp</result>  
+</action> 
+
+
+<action name="viewEmp" class="com.StrutsTest1.ViewEmp">  
+<result name="success">/view_employee.jsp</result>
+<result name="error">/home.jsp</result>  
+</action> 
+
+
+<action name="empDetail" class="com.StrutsTest1.DetailEmp">  
+<result name="success">/viewEmpDetail.jsp</result>
+<result name="error">/view_employee.jsp</result>  
+</action> 
+
+<action name="employee_logout" class="com.StrutsTest1.EmployeeLogin" method="Logout">  
+<result name="success">/index.jsp</result>
+</action> 
+
+
+<action name="attendanceDashboard" class="com.StrutsTest1.AttendanceDashboard">  
+<result name="success">/attendance_dashboard_checkin.jsp</result>
+<result name="error">/attendance_dashboard_checkout.jsp</result>
+</action> 
+
+<action name="check_in" class="com.StrutsTest1.Checkin">  
+<result name="success">/attendance_dashboard_checkout.jsp</result>
+<result name="error">/attendance_dashboard_checkin.jsp</result>
+</action>
+
+<action name="check_out" class="com.StrutsTest1.Checkin" method="checkOut">  
+<result name="success">/attendance_dashboard_checkin.jsp</result>
+<result name="error">/attendance_dashboard_checkout.jsp</result>
+</action>
+ 
+ 
+ <action name="viewAttendance" class="com.StrutsTest1.ViewEmp">  
+<result name="success">/view_attendance.jsp</result>
+<result name="error">/home.jsp</result>  
+</action> 
+
+ 
+ <action name="empAttendDetail" class="com.StrutsTest1.AttendDetailEmp">  
+<result name="success">/individualEmpAttendance.jsp</result>
+<result name="error">/view_attendance.jsp</result>  
+</action> 
+
+
+<action name="emp_home" class="com.StrutsTest1.EmployeePortal" method="goHome">  
+<result name="success">/employee_home.jsp</result>
+</action> 
+ 
+ <action name="hr_home" class="com.StrutsTest1.Login" method="goHome">  
+<result name="success">/home.jsp</result>
+</action> 
+ 
+<action name="myAccount" class="com.StrutsTest1.MyAccount" >  
+<result name="success">/account_details.jsp</result>
+<result name="error">/employee_home.jsp</result>
+</action> 
+
+
+<action name="editAccountPage" class="com.StrutsTest1.MyAccount">  
+<result name="success">/edit_account_details.jsp</result>
+<result name="error">/employee_home.jsp</result>
+</action>  
+ 
+ 
+ 
+<action name="editAccount" class="com.StrutsTest1.MyAccount" method="editAccount">  
+<result name="success">/employee_home.jsp</result>
+<result name="error">/employee_home.jsp</result>
+</action> 
+
+
+<action name="editAccountPageHr" class="com.StrutsTest1.EditEmployeeHr">  
+<result name="success">/edit_account_details_hr.jsp</result>
+<result name="error">/home.jsp</result>
+</action>  
+
+<action name="editAccountHr" class="com.StrutsTest1.UpdateEmpDetailHr">  
+<result name="success" type="redirectAction">/editAccountPageHr.action</result>
+<result name="error">/home.jsp</result>
+</action> 
+ 
+ 
+<action name="requestLeave" class="com.StrutsTest1.LeaveDashboard" >  
+<result name="success">/leave_dashboard.jsp</result>
+<result name="error">/employee_home.jsp</result>
+</action>  
+
+
+<action name="reqLeaveForm" class="com.StrutsTest1.LeaveDashboard" method="requestLeave" >  
+<result name="success" type="redirectAction">/requestLeave.action</result>
+<result name="error">/employee_home.jsp</result>
+</action> 
+
+
+
+<action name="manageLeave" class="com.StrutsTest1.LeaveDashboard" method="displayLeaveReq" >  
+<result name="success">/display_all_leaves_hr.jsp</result>
+</action> 
+
+<action name="setStatus" class="com.StrutsTest1.LeaveDashboard" method="setStatus" >  
+<result name="success" type="redirectAction">/manageLeave.action</result>
+</action> 
+
+
+<action name="requestExpense" class="com.StrutsTest1.ExpenseDashboard">  
+<result name="success">/expense_dashboard.jsp</result>
+<result name="error">/employee_home.jsp</result>
+</action>
+
+<action name="requestExpenseForm" class="com.StrutsTest1.ExpenseDashboard" method="sendRequest">  
+<result name="success" type="redirectAction">/requestExpense.action</result>
+<result name="error">/employee_home.jsp</result>
+</action>
+
+
+<action name="manageExpense" class="com.StrutsTest1.ExpenseDashboard" method="displayExpReq" >  
+<result name="success">/display_all_expense_hr.jsp</result>
+</action> 
+
+<action name="setStatusExpense" class="com.StrutsTest1.ExpenseDashboard" method="setStatus" >  
+<result name="success" type="redirectAction">/manageExpense.action</result>
+</action> 
+
+<action name="manageSalary" class="com.StrutsTest1.SalaryDashboard">  
+<result name="success">/salary_dashboard.jsp</result>
+<result name="error">/home.jsp</result>
+</action>
+
+<action name="empSalaryDetail" class="com.StrutsTest1.SalaryDashboard" method="showEmpSalary">  
+<result name="success">/show_ind_salary.jsp</result>
+<result name="error">/home.jsp</result>
+</action>
+
+
+<action name="editSalaryPage" class="com.StrutsTest1.SalaryDashboard" method="editSalaryPage">  
+<result name="success">/show_edit_ind_salary.jsp</result>
+<result name="error">/home.jsp</result>
+</action>
+
+<action name="submitSalaryDetail" class="com.StrutsTest1.SalaryDashboard" method="setSalary">  
+<result name="success" type="redirectAction">/manageSalary.action</result>
+<result name="error">/home.jsp</result>
+</action>
+
+<action name="requestSalaryEmp" class="com.StrutsTest1.SalaryDashboard" method="requestSalaryEmp">  
+<result name="success" >/show_emp_salary_in_emp.jsp</result>
+<result name="error">/employee_home.jsp</result>
+</action>
+
+ 
+</package>  
+</struts>      
